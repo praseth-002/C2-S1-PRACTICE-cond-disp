@@ -1,14 +1,18 @@
-import pnLogo from "./assets/pn-logo.png";
+import Header from "./components/header";
+import Scores from "./components/Scores";
+import {JAVA_RESULTS, PYTHON_RESULTS, HTML_RESULTS, ENGLISH_RESULTS} from "./data"
 
 function App() {
   return (
     <>
-      <header id="header">
+      {/* <header id="header">
         <img src={pnLogo} alt="PN Logo" />
         <h1>Students results for (fake batch name))</h1>
-      </header>
+      </header> */}
 
-      <main className="scores-container">
+      <Header />
+
+      {/* <main className="scores-container">
         <div class="scores">
           <h1>Fake Course</h1>
 
@@ -34,6 +38,12 @@ function App() {
             </tbody>
           </table>
         </div>
+      </main> */}
+      <main className="scores-container">
+        <Scores course="Java" courseResults={JAVA_RESULTS}/>
+        <Scores course="Python" courseResults={PYTHON_RESULTS}/>
+        <Scores course="Html" courseResults={HTML_RESULTS}/>
+        <Scores course="English" courseResults={ENGLISH_RESULTS}/>
       </main>
     </>
   );
