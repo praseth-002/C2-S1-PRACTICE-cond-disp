@@ -1,4 +1,5 @@
 import React from "react";
+import Statistics from "./Statistics";
 
 export default function Scores(props) {
     return <>
@@ -13,15 +14,18 @@ export default function Scores(props) {
                     </tr>            
                 </thead>
                 <tbody>
-                    {props.courseResults.map((student, index)=>(
+                    {props.courseResults.map((student, index)=>{
+                        let checkScore = student.score <= 50 ? "warning" : "";
+                        return(
                         <tr key={index}>
                             <td>{student.firstName}</td>    
-                            <td>{student.lastName}</td>    
-                            <td>{student.score}</td> 
+                            <td>{student.lastName}</td>   
+                            <td className={checkScore}>{student.score}</td>
                         </tr>
-                    ))}
+                    )})}
                 </tbody>
             </table>
+            <Statistics courseResults={props.courseResults}/>
         </div>
     </>
 }
